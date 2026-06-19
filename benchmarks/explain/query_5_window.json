@@ -1,0 +1,146 @@
+{
+  "execution_time_ms": 4731.06,
+  "shared_hit_blocks": 1010051,
+  "shared_dirtied_blocks": 0,
+  "has_sort": false,
+  "sort_details": [],
+  "plan": {
+    "Plan": {
+      "Node Type": "Incremental Sort",
+      "Parallel Aware": false,
+      "Async Capable": false,
+      "Startup Cost": 3.55,
+      "Total Cost": 151861.2,
+      "Plan Rows": 1010000,
+      "Plan Width": 58,
+      "Actual Startup Time": 309.31,
+      "Actual Total Time": 4602.1,
+      "Actual Rows": 1010000,
+      "Actual Loops": 1,
+      "Sort Key": [
+        "user_id",
+        "order_id"
+      ],
+      "Presorted Key": [
+        "user_id"
+      ],
+      "Full-sort Groups": {
+        "Group Count": 21349,
+        "Sort Methods Used": [
+          "quicksort"
+        ],
+        "Sort Space Memory": {
+          "Average Sort Space Used": 29,
+          "Peak Sort Space Used": 29
+        }
+      },
+      "Pre-sorted Groups": {
+        "Group Count": 1260,
+        "Sort Methods Used": [
+          "external merge"
+        ],
+        "Sort Space Disk": {
+          "Average Sort Space Used": 1872,
+          "Peak Sort Space Used": 1872
+        }
+      },
+      "Shared Hit Blocks": 1010051,
+      "Shared Read Blocks": 3691,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 0,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 452,
+      "Temp Written Blocks": 452,
+      "Plans": [
+        {
+          "Node Type": "WindowAgg",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 0.42,
+          "Total Cost": 98403.39,
+          "Plan Rows": 1010000,
+          "Plan Width": 58,
+          "Actual Startup Time": 163.396,
+          "Actual Total Time": 3857.24,
+          "Actual Rows": 1010000,
+          "Actual Loops": 1,
+          "Shared Hit Blocks": 1010045,
+          "Shared Read Blocks": 3691,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 218,
+          "Temp Written Blocks": 217,
+          "Plans": [
+            {
+              "Node Type": "Index Scan",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Scan Direction": "Forward",
+              "Index Name": "orders_user_created_at_idx",
+              "Relation Name": "orders",
+              "Alias": "o",
+              "Startup Cost": 0.42,
+              "Total Cost": 73153.39,
+              "Plan Rows": 1010000,
+              "Plan Width": 26,
+              "Actual Startup Time": 12.49,
+              "Actual Total Time": 1818.919,
+              "Actual Rows": 1010000,
+              "Actual Loops": 1,
+              "Shared Hit Blocks": 1010045,
+              "Shared Read Blocks": 3691,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0
+            }
+          ]
+        }
+      ]
+    },
+    "Planning": {
+      "Shared Hit Blocks": 111,
+      "Shared Read Blocks": 0,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 0,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 0,
+      "Temp Written Blocks": 0
+    },
+    "Planning Time": 0.968,
+    "Triggers": [],
+    "JIT": {
+      "Functions": 7,
+      "Options": {
+        "Inlining": false,
+        "Optimization": false,
+        "Expressions": true,
+        "Deforming": true
+      },
+      "Timing": {
+        "Generation": 0.927,
+        "Inlining": 0.0,
+        "Optimization": 0.949,
+        "Emission": 11.505,
+        "Total": 13.381
+      }
+    },
+    "Execution Time": 4731.06
+  }
+}

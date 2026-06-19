@@ -1,0 +1,24 @@
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ctes_pg_benchmark
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-analytics}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change_me}
+      POSTGRES_DB: ${POSTGRES_DB:-analytics_benchmark}
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - ./:/workspace
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-analytics} -d ${POSTGRES_DB:-analytics_benchmark}"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+
+volumes:
+  pgdata:

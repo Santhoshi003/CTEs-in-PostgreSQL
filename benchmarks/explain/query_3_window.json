@@ -1,0 +1,231 @@
+{
+  "execution_time_ms": 5699.63,
+  "shared_hit_blocks": 1010647,
+  "shared_dirtied_blocks": 0,
+  "has_sort": false,
+  "sort_details": [],
+  "plan": {
+    "Plan": {
+      "Node Type": "Unique",
+      "Parallel Aware": false,
+      "Async Capable": false,
+      "Startup Cost": 5494.86,
+      "Total Cost": 161798.29,
+      "Plan Rows": 200000,
+      "Plan Width": 108,
+      "Actual Startup Time": 231.404,
+      "Actual Total Time": 5605.738,
+      "Actual Rows": 200000,
+      "Actual Loops": 1,
+      "Shared Hit Blocks": 1010647,
+      "Shared Read Blocks": 3645,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 2,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 527014,
+      "Temp Written Blocks": 597,
+      "Plans": [
+        {
+          "Node Type": "WindowAgg",
+          "Parent Relationship": "Outer",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 5494.86,
+          "Total Cost": 159273.29,
+          "Plan Rows": 1010000,
+          "Plan Width": 108,
+          "Actual Startup Time": 231.4,
+          "Actual Total Time": 5426.002,
+          "Actual Rows": 1034509,
+          "Actual Loops": 1,
+          "Shared Hit Blocks": 1010647,
+          "Shared Read Blocks": 3645,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 2,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 527014,
+          "Temp Written Blocks": 597,
+          "Plans": [
+            {
+              "Node Type": "Incremental Sort",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 5494.86,
+              "Total Cost": 131498.29,
+              "Plan Rows": 1010000,
+              "Plan Width": 34,
+              "Actual Startup Time": 165.654,
+              "Actual Total Time": 2479.389,
+              "Actual Rows": 1034509,
+              "Actual Loops": 1,
+              "Sort Key": [
+                "u.user_id",
+                "o.created_at",
+                "o.order_id"
+              ],
+              "Presorted Key": [
+                "u.user_id"
+              ],
+              "Full-sort Groups": {
+                "Group Count": 22116,
+                "Sort Methods Used": [
+                  "quicksort"
+                ],
+                "Sort Space Memory": {
+                  "Average Sort Space Used": 30,
+                  "Peak Sort Space Used": 30
+                }
+              },
+              "Pre-sorted Groups": {
+                "Group Count": 1260,
+                "Sort Methods Used": [
+                  "external merge"
+                ],
+                "Sort Space Disk": {
+                  "Average Sort Space Used": 2296,
+                  "Peak Sort Space Used": 2296
+                }
+              },
+              "Shared Hit Blocks": 1010647,
+              "Shared Read Blocks": 3645,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 2,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 287,
+              "Temp Written Blocks": 288,
+              "Plans": [
+                {
+                  "Node Type": "Merge Join",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Join Type": "Left",
+                  "Startup Cost": 5494.32,
+                  "Total Cost": 91482.36,
+                  "Plan Rows": 1010000,
+                  "Plan Width": 34,
+                  "Actual Startup Time": 20.74,
+                  "Actual Total Time": 1985.568,
+                  "Actual Rows": 1034509,
+                  "Actual Loops": 1,
+                  "Inner Unique": false,
+                  "Merge Cond": "(u.user_id = o.user_id)",
+                  "Shared Hit Blocks": 1010641,
+                  "Shared Read Blocks": 3645,
+                  "Shared Dirtied Blocks": 0,
+                  "Shared Written Blocks": 2,
+                  "Local Hit Blocks": 0,
+                  "Local Read Blocks": 0,
+                  "Local Dirtied Blocks": 0,
+                  "Local Written Blocks": 0,
+                  "Temp Read Blocks": 0,
+                  "Temp Written Blocks": 0,
+                  "Plans": [
+                    {
+                      "Node Type": "Index Only Scan",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Scan Direction": "Forward",
+                      "Index Name": "users_pkey",
+                      "Relation Name": "users",
+                      "Alias": "u",
+                      "Startup Cost": 0.42,
+                      "Total Cost": 5204.42,
+                      "Plan Rows": 200000,
+                      "Plan Width": 4,
+                      "Actual Startup Time": 0.038,
+                      "Actual Total Time": 48.912,
+                      "Actual Rows": 200000,
+                      "Actual Loops": 1,
+                      "Heap Fetches": 0,
+                      "Shared Hit Blocks": 337,
+                      "Shared Read Blocks": 213,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0
+                    },
+                    {
+                      "Node Type": "Index Scan",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Scan Direction": "Forward",
+                      "Index Name": "orders_user_created_at_idx",
+                      "Relation Name": "orders",
+                      "Alias": "o",
+                      "Startup Cost": 0.42,
+                      "Total Cost": 73153.39,
+                      "Plan Rows": 1010000,
+                      "Plan Width": 34,
+                      "Actual Startup Time": 0.068,
+                      "Actual Total Time": 1512.644,
+                      "Actual Rows": 1010000,
+                      "Actual Loops": 1,
+                      "Shared Hit Blocks": 1010304,
+                      "Shared Read Blocks": 3432,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 2,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "Planning": {
+      "Shared Hit Blocks": 224,
+      "Shared Read Blocks": 0,
+      "Shared Dirtied Blocks": 0,
+      "Shared Written Blocks": 0,
+      "Local Hit Blocks": 0,
+      "Local Read Blocks": 0,
+      "Local Dirtied Blocks": 0,
+      "Local Written Blocks": 0,
+      "Temp Read Blocks": 0,
+      "Temp Written Blocks": 0
+    },
+    "Planning Time": 1.333,
+    "Triggers": [],
+    "JIT": {
+      "Functions": 18,
+      "Options": {
+        "Inlining": false,
+        "Optimization": false,
+        "Expressions": true,
+        "Deforming": true
+      },
+      "Timing": {
+        "Generation": 1.914,
+        "Inlining": 0.0,
+        "Optimization": 0.969,
+        "Emission": 19.756,
+        "Total": 22.64
+      }
+    },
+    "Execution Time": 5699.63
+  }
+}

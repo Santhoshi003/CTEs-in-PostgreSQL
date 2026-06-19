@@ -1,0 +1,43 @@
+{
+  "query_1": {
+    "wf_ms": 243.906,
+    "cte_ms": 1141.059,
+    "index_speedup": 0.507
+  },
+  "query_2": {
+    "wf_ms": 3122.84,
+    "cte_ms": 10423.28,
+    "index_speedup": 1.065
+  },
+  "query_3": {
+    "wf_ms": 5699.63,
+    "cte_ms": 4723.129,
+    "index_speedup": 1.0
+  },
+  "query_4": {
+    "wf_ms": 1820.988,
+    "cte_ms": 1927.143,
+    "index_speedup": 1.0
+  },
+  "query_5": {
+    "wf_ms": 4731.06,
+    "cte_ms": 5907.567,
+    "index_speedup": 1.0
+  },
+  "pgbench_results": {
+    "wf_tps_q1": 15.617,
+    "cte_tps_q1": 9.104,
+    "wf_latency_ms_q1": 640.343,
+    "cte_latency_ms_q1": 1098.459,
+    "wf_tps_q2": 2.831,
+    "cte_tps_q2": 1.01,
+    "wf_latency_ms_q2": 3532.054,
+    "cte_latency_ms_q2": 9897.54
+  },
+  "materialized_view": {
+    "create_ms": 1874.821,
+    "refresh_ms": 1172.464,
+    "select_ms": 636.892,
+    "raw_q1_ms": 1296.666
+  }
+}
